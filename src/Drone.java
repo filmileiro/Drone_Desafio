@@ -39,28 +39,33 @@ public class Drone {
             //N123LN123
             //N123LXN123
 
+            String numerico = "";
+            int numeroN = 0;
+
+            if (comandos.matches("[nN]\\d+")) {
+                numerico = comandos.replaceAll("[nNsSlLoO]", "");
+                numeroN = Integer.parseInt(numerico);
+                Y += numeroN;
+                //N123LSX
+
+                String[] comandos4 = comandos3.split("");
+                for (int i = 0; i < comandos4.length; i++) {
+                    switch (comandos4[i]) {
+                        case "S":
+                            Y--;
+                        case "L":
+                            X++;
+                            break;
+                        case "O":
+                            X--;
+                            break;
+                    }
+                }
+                System.out.printf("(%s,%d)%n", X, Y);
+
+            }
+
             System.out.println(comandos3);
-
-            String[] numericos = comandos3.split("[N]");
-
-
-            System.out.println(Arrays.toString(numericos));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
